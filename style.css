@@ -1,0 +1,122 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background: gray;
+    display: flex;
+    margin: 0;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+.display{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 35vh;
+    background:  oklch(38% 0.005 -0.0035);
+    border-radius: 20px;
+    aspect-ratio : 1/1.56;  
+    border: black solid 5px;
+    overflow: hidden;
+}
+/* .display::after{
+    content: '';
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        270deg,
+        red,
+        orange,
+        yellow,
+        green,
+        lightblue,
+        blue,
+        purple
+    );
+    border-radius: 20px;
+    filter: blur(10px);
+    transform: scale(1.01);
+    background-size: 200%,200% ;
+    animation : borderMove 4s infinite;
+} */
+
+.buttons{
+    position: absolute;
+    bottom: 0;
+    display: grid;
+    grid-template:  repeat(5,1fr)/ repeat(4,1fr);
+    grid-template-areas: 
+    "paropen parclose clear divide"
+    "n7 n8 n9 plus"
+    "n4 n5 n6 minus"
+    "n1 n2 n3 mul"
+    "backspace n0 dot equal"
+    ;
+    width: 100%;
+    height: 70%;
+    border-top: black solid 5px;
+}
+button{
+    background: oklch(85% 0 271);
+    border-radius: 20px;
+    border: none;
+    transform: scale(0.9);
+    font-size: 20px;
+}
+button:hover{
+    background: oklch(93% 0 271);
+    transform: scale(1.01);
+}
+button:active{
+    transform: translateY(2px);
+}
+.btnparopen{grid-area : paropen;}
+.btnparclose{grid-area : parclose;}
+.btnclear{grid-area : clear;}
+.btndiv{grid-area : divide;}
+.btn1{grid-area: n1;}
+.btn2{grid-area: n2;}
+.btn3{grid-area: n3;}
+.btn4{grid-area: n4;}
+.btn5{grid-area: n5;}
+.btn6{grid-area: n6;}
+.btn7{grid-area: n7;}
+.btn8{grid-area: n8;}
+.btn9{grid-area: n9;}
+.btn0{grid-area: n0;}
+.btndot{grid-area: dot;}
+.btnbackspace{grid-area: backspace;}
+.btnplus{grid-area: plus;}
+.btnminus{grid-area: minus;}
+.btnmul{grid-area: mul;}
+.btnequal{grid-area: equal;}
+
+.value{
+    position: absolute;
+    top:9%;
+    border-radius: 10px;
+    background: oklch(85% 0 271);
+    border: none;
+    outline: none;
+    transform:scale(1.2);
+    width: 76%;
+    height:7vh;
+    text-align: right;
+    white-space: nowrap;
+    overflow-x: auto;
+    
+}
+@keyframes borderMove{
+    0%{
+        background-position: 0,0;
+    }
+    50%{
+        background-position: 100%,100%;
+    }
+    100%{
+        background-position: 0,0;
+    }
+}
